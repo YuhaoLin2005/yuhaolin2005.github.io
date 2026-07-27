@@ -1,0 +1,236 @@
+/* ── 繁·园 · Style — 国风柔光名片 v2 ──────────────────── */
+
+/* ═══════════════ Global Design System ═══════════════ */
+:root {
+  /* Ink colors — no pure white, three-grade ink */
+  --ink-deep: rgba(26, 26, 24, 0.88);
+  --ink-mid: rgba(51, 51, 48, 0.72);
+  --ink-light: rgba(85, 85, 80, 0.55);
+  --ink-faint: rgba(85, 85, 80, 0.45);
+
+  /* Glassmorphism — all floating UI */
+  --glass-bg: rgba(248, 246, 240, 0.12);
+  --glass-glow: inset 0 0 12px rgba(220, 215, 200, 0.18);
+
+  /* Spacing (base: 1rem = 16px) */
+  --sp-xs: 0.25rem;   /* 4px */
+  --sp-sm: 0.5rem;    /* 8px */
+  --sp-md: 1rem;      /* 16px */
+  --sp-lg: 1.5rem;    /* 24px */
+
+  /* Radii */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+
+  /* Transitions */
+  --t-ui: 0.35s ease-out;
+  --t-mood: 0.8s ease-out;
+
+  /* Fonts */
+  --font-title: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --font-body: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* ═══════════════ Reset ═══════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:#f5f0e8;color:var(--ink-mid);
+  font-family:var(--font-body);
+  overflow:hidden;height:100vh;width:100vw;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+#app{position:relative;width:100%;height:100%;}
+
+/* ═══════════════ Canvas — first to fade in ═══════════════ */
+#canvas-container{
+  position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;
+  animation:canvasFadeIn 1.2s 0.2s ease-out both;
+}
+#canvas-container canvas{display:block;}
+
+@keyframes canvasFadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ═══════════════ Block 1: Identity (top-left seal) ═══════════════ */
+#identity{
+  position:fixed;top:1.2rem;left:1.2rem;z-index:10;
+  display:flex;flex-direction:column;
+  max-width:220px;
+  border-radius:var(--r-md);
+  padding:var(--sp-sm) var(--sp-sm);
+  background:var(--glass-bg);
+  box-shadow:var(--glass-glow);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  animation:uiFadeIn 0.8s 1.4s ease-out both;
+}
+
+#site-title{
+  font-family:var(--font-title);
+  font-size:2.2rem;font-weight:700;
+  color:var(--ink-deep);
+  letter-spacing:0.2em;
+  line-height:1.45;
+  margin-bottom:0.8rem;
+}
+
+#owner{
+  font-family:var(--font-sans);
+  font-size:0.95rem;font-weight:300;
+  color:var(--ink-mid);
+  letter-spacing:0.12em;
+  margin-bottom:0.4rem;
+}
+
+#owner .field-hint{
+  color:var(--ink-light);
+  font-size:0.9rem;
+  font-weight:300;
+  letter-spacing:0.06em;
+  padding:0 0.3em;
+}
+
+#tagline{
+  font-family:var(--font-body);
+  font-size:0.8rem;font-weight:400;font-style:italic;
+  color:var(--ink-light);
+  letter-spacing:0.1em;
+  /* no bottom margin — last in vertical stack */
+}
+
+/* ═══════════════ Block 2: Info Bar (top-center) ═══════════════ */
+#info-bar{
+  position:fixed;top:1.2rem;left:50%;transform:translateX(-50%);z-index:10;
+  display:flex;align-items:center;
+  padding:0.4rem var(--sp-md);
+  border-radius:var(--r-lg);
+  background:var(--glass-bg);
+  box-shadow:var(--glass-glow);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  animation:infoFadeIn 0.8s 1.58s ease-out both;
+}
+
+#info-bar > * { margin: 0 1.2rem; }
+
+#emotion-label{
+  font-size:0.9rem;font-weight:400;
+  color:var(--ink-deep);
+  letter-spacing:0.08em;
+  transition:color var(--t-mood);
+}
+
+#hint{
+  font-size:0.8rem;font-weight:400;
+  color:var(--ink-mid);
+  transition:color var(--t-mood);
+}
+
+#node-count{
+  font-size:0.8rem;
+  color:var(--ink-light);
+}
+
+/* ═══════════════ Block 3: Notice (bottom-centre watermark) ═══════════════ */
+#notice{
+  position:fixed;bottom:0.8rem;left:50%;transform:translateX(-50%);z-index:10;
+  padding:0.2rem 0.6rem;
+  border-radius:var(--r-sm);
+  background:var(--glass-bg);
+  box-shadow:var(--glass-glow);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  font-size:0.65rem;
+  color:var(--ink-faint);
+  letter-spacing:0.08em;
+  white-space:nowrap;
+  max-width:fit-content;
+  animation:noticeFadeIn 0.8s 1.76s ease-out both;
+}
+
+/* ═══════════════ Block 4: Social Links (bottom-right seal row) ═══════════════ */
+#social-links{
+  position:fixed;bottom:1.2rem;right:1.2rem;z-index:10;
+  display:flex;align-items:center;gap:var(--sp-sm);
+  animation:uiFadeIn 0.8s 1.94s ease-out both;
+}
+
+.social-link{
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:var(--glass-bg);
+  box-shadow:var(--glass-glow);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  color:rgba(68,68,64,0.7);
+  text-decoration:none;
+  transition:color var(--t-ui),opacity var(--t-ui),box-shadow var(--t-ui);
+}
+
+.social-link svg{width:18px;height:18px;display:block;}
+
+.social-link:hover{
+  color:rgba(68,68,64,0.9);
+  box-shadow:var(--glass-glow), 0 0 30px rgba(230,220,200,0.3);
+}
+
+/* ═══════════════ Block 5: Intro Hint (auto-hide after 8.5s) ═══════════════ */
+#intro-hint{
+  position:fixed;bottom:38%;left:50%;transform:translate(-50%,50%);z-index:10;
+  font-size:0.75rem;font-weight:300;
+  color:var(--ink-faint);
+  letter-spacing:0.06em;white-space:nowrap;
+  pointer-events:none;
+  animation:hintIn 0.8s 3s ease-out both, hintOut 0.6s 8.5s ease-in forwards;
+}
+
+@keyframes hintIn  { from{opacity:0;} to{opacity:1;} }
+@keyframes hintOut { from{opacity:1;} to{opacity:0;} }
+
+/* ═══════════════ UI Fade-in Sequence ═══════════════ */
+@keyframes uiFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; }
+}
+@keyframes infoFadeIn {
+  from { opacity:0; transform:translateX(-50%) translateY(6px); }
+  to   { opacity:1; transform:translateX(-50%); }
+}
+@keyframes noticeFadeIn {
+  from { opacity:0; transform:translateX(-50%) translateY(6px); }
+  to   { opacity:1; transform:translateX(-50%); }
+}
+
+/* ═══════════════ Responsive: Mobile (<768px) ═══════════════ */
+@media (max-width: 767px) {
+  :root { font-size: 80%; }
+
+  #identity {
+    top:0.8rem; left:0.8rem;
+    max-width:180px;
+  }
+  #info-bar {
+    top:0.8rem;
+    flex-direction:column; align-items:center;
+    gap:0.3rem;
+  }
+  #info-bar > * { margin: 0; }
+
+  #notice    { bottom:0.6rem; }
+  #social-links { bottom:0.6rem; right:0.6rem; gap:0.35rem; }
+  .social-link {
+    width:28px; height:28px;
+  }
+  .social-link svg { width:14px; height:14px; }
+}
+
+/* ═══════════════ Responsive: Large Desktop (>1440px) ═══════════════ */
+@media (min-width: 1440px) {
+  #identity  { top:1.6rem; left:1.6rem; }
+  #info-bar  { top:1.6rem; padding:0.5rem 1.6rem; }
+  #notice    { bottom:1rem; }
+  #social-links { bottom:1.6rem; right:1.6rem; }
+}
