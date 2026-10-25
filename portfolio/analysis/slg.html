@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无尽的拉格朗日：海外 SLG 的一笔账 · 林宇浩</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <span class="brand">林宇浩 · 拆解</span>
+    <span><a href="../index.html">← 回作品集</a></span>
+  </div>
+
+  <header class="article-head">
+    <a class="back" href="../index.html">作品集 / 游戏拆解</a>
+    <h1>无尽的拉格朗日：海外 SLG 的一笔账</h1>
+    <div class="sub">巴西市场、买量口径、联盟社交留存——哪些数字能用，哪些不能</div>
+    <div class="article-meta">分析日期 2026-08-15　·　数据截止 2026-08　·　面向：游戏发行 / 运营</div>
+  </header>
+
+  <article class="article-body">
+
+    <p class="lead">拉格朗日在巴西的机会，常被归因于“硬核科幻 + 男性玩家 + Facebook 买量”。把公开数据对一遍，最站不住的是用户画像；最容易被误用的，是买量大盘。</p>
+
+    <div class="callout">
+      <p><strong>先看结论：</strong></p>
+      <p>1. 巴西市场的基本盘成立：下载全球 #2–3、年增 10–12%、移动优先。但“88% 男性、付费率 4.2%”这些流传很广的数字，没有可核验来源。</p>
+      <p>2. 巴西游戏博彩类数字广告 2024 年增长 +192%，主引擎是博彩/老虎机，不是 SLG。拿它当 SLG 的买量基线，是张冠李戴。</p>
+      <p>3. 联盟社交是 SLG 的留存引擎，但公开数据里没有“联盟活跃度 → D30 留存”的现成基准。先建自己的一把尺，再谈优化。</p>
+    </div>
+
+    <h2>一、市场：三个能用的数</h2>
+    <div class="facts">
+      <div class="fact"><div class="n">$6.6B</div><div class="l">2024 巴西游戏市场总规模（JETRO）</div></div>
+      <div class="fact"><div class="n">10.8%</div><div class="l">2019 以来年增；KOCCA 引 Statista：整体 CAGR 11.8%，手游 9.1%</div></div>
+      <div class="fact"><div class="n">#2–3</div><div class="l">2024 手游下载量全球排名，全年稳定在前三（Sensor Tower）</div></div>
+    </div>
+    <p>“移动端占收入 60% 以上”这个说法要改口径：移动端占<b>收入</b>约 50–53%（Grand View、Inkwood），但<b>超过 60% 的玩家以移动端为主</b>（Antom）。同一句话，收入和玩家两个口径，不能混着说。</p>
+
+    <h2>二、用户：流传最广的数字，反而最站不住</h2>
+    <p>“巴西玩家 88% 是男性”“本科以上 57%”“手游付费率 4.2%”“31–40 岁占 30% 以上”——这四条我在公开来源里都找不到可核验的出处。能对上的是：</p>
+    <table>
+      <thead><tr><th>指标</th><th>公开数据</th><th>怎么用</th></tr></thead>
+      <tbody>
+        <tr><td>性别</td><td>巴西玩家整体 67.6% 男性 / 32.4% 女性（Start.io）；主机/PC 玩家约 56% 男性（Comscore）</td><td>女性占 32–44%，不是“纯男性市场”；素材和渠道应做女性向对照</td></tr>
+        <tr><td>付费</td><td>巴西移动 ARPU 约 $8.15，约为全球一半（Statista）；Pix 是本地主要支付方式（Antom）</td><td>价格敏感 + 本地支付是硬门槛；支付成功率要单独盯</td></tr>
+        <tr><td>学历 / 年龄</td><td>精确分布无免费来源；Comscore 只给主机/PC 玩家集中在 25–44 岁</td><td>不写精确比例；用代理指标，或标“数据不可得”</td></tr>
+      </tbody>
+    </table>
+    <p>这一步的价值不是“多知道几个数”，而是<b>避免拿一个假画像去做投放</b>。如果按 88% 男性去配素材，女性玩家这一块从一开始就被排除掉了。</p>
+
+    <div class="chart">
+      <div class="chart-title">巴西玩家性别构成（Start.io）</div>
+      <div class="chart-row"><span>男性</span><div class="chart-track"><div class="chart-fill" style="width:67.6%"></div></div><span class="chart-val">67.6%</span></div>
+      <div class="chart-row"><span>女性</span><div class="chart-track"><div class="chart-fill dim" style="width:32.4%"></div></div><span class="chart-val">32.4%</span></div>
+      <div class="chart-note">流传的“88% 男性”在公开来源里找不到出处；按 67.6 / 32.4 做素材对照，至少不会把三分之一的女玩家从投放里排除。</div>
+    </div>
+
+    <h2>三、买量：+192% 不是 SLG 的 +192%</h2>
+    <p>IAB / Kantar 经 Gaming America 报道的数据是：2024 年巴西<b>游戏博彩类</b>数字广告支出同比 +192%，是全行业最高；TikTok 的广告支出份额只有 3%。同时，Facebook 在巴西的采用率是 82.8%——这是“社媒采用率”，不是“买量覆盖”。</p>
+    <p>这三个数放在一起，能说明“巴西数字广告在涨、社媒渗透高”，<b>不能说明“SLG 的买量成本低”</b>。博彩品类的投放逻辑、回收周期、素材合规，和 SLG 不是一回事。拿大盘涨幅当自己的成绩，是出海运营最贵的错误之一。</p>
+
+    <h2>四、产品：中国区可验证，海外收入不可得</h2>
+    <p>能核验的是中国区：2022 年 6 月，《无尽的拉格朗日》中国 iOS 收入榜第 8、网易旗下第 2、环比 +163%（Sensor Tower，经 199IT / 智通财经）。<b>海外独立收入没有公开披露</b>，第三方也拿不到完整拆分。</p>
+    <p>所以“出海成功”这句话，只能用代理指标说：下载排名、评价量增速、社区热度。代理指标和收入的相关性，得自己验证过，才能当结论用。</p>
+
+    <h2>五、如果我在运营岗上</h2>
+    <table>
+      <thead><tr><th>观察</th><th>我会怎么做</th><th>用什么验收</th></tr></thead>
+      <tbody>
+        <tr><td>用户画像被“88% 男性”带偏</td><td>停止按纯男性投放；同预算做一次女性向素材/渠道对照</td><td>分性别 CAC、D7 留存差异</td></tr>
+        <tr><td>买量大盘 +192% 的主引擎是博彩</td><td>不挪用行业大盘；建“同品类、同渠道、同周期”的投放基线</td><td>自己的基线表，而不是行业总榜</td></tr>
+        <tr><td>联盟社交是留存引擎，但缺量化基准</td><td>把 D1/D7/D30 与联盟活跃度拉出来，找“低于多少就注定流失”的触发线</td><td>一条可复述的阈值，而不是“社交很重要”</td></tr>
+        <tr><td>Pix 是本地支付硬门槛</td><td>把支付成功率当独立指标盯，不把支付失败算进“用户不付费”</td><td>发起 → 支付成功的转化率</td></tr>
+      </tbody>
+    </table>
+
+    <h2>六、这份分析没解决什么</h2>
+    <ul>
+      <li>缺 SLG 品类的 D30 留存 / LTV 基准，联盟社交的量化关系还没建起来。</li>
+      <li>缺巴西玩家学历、年龄的精确分布；Statista 订阅段拿不到。</li>
+      <li>缺拉格朗日海外流水；data.ai / AppMagic 需账号，第三方估算不完整。</li>
+      <li>“4.2% 付费率”没有来源，我不把它当事实用。</li>
+    </ul>
+
+    <h2>来源</h2>
+    <ul class="sources">
+      <li>JETRO《巴西游戏市场报告》2025 · <a href="https://www.jetro.go.jp/ext_images/_Reports/02/2025/40c3274198b4b09c/202508.pdf">原报告 PDF</a></li>
+      <li>KOCCA 全球游戏产业趋势（引 Statista）· <a href="https://kocca.kr/global/2024_1+2/sub03_01.html">kocca.kr</a></li>
+      <li>Sensor Tower 月度全球手游下载榜（2024-04 / 2024-07）· <a href="https://sensortower-china.com/zh-CN/blog/top-mobile-games-worldwide-for-april-2024-by-downloads-CN">4 月榜</a> · <a href="https://sensortower.com/zh-CN/blog/monthly-gaming-recap-july-2024-CN">7 月榜</a></li>
+      <li>Grand View Research · Brazil Gaming Market Outlook · <a href="https://www.grandviewresearch.com/horizon/outlook/gaming-market/brazil">原页面</a></li>
+      <li>Antom《Brazil's Gaming Boom》· <a href="https://knowledge.antom.com/brazils-gaming-boom-unlocking-the-new-frontier-of-opportunities">原报告</a></li>
+      <li>Start.io · Gamers in Brazil 受众报告 · <a href="https://www.start.io/audience/gamers-in-brazil">原页面</a></li>
+      <li>Valor International / Comscore《Gamer audience loyal to brands》2024-11 · <a href="https://valorinternational.globo.com/business/news/2024/11/12/gamer-audience-loyal-to-brands-open-to-ads-and-ready-to-spend.ghtml">原报道</a></li>
+      <li>IAB / Kantar，经 Gaming America 报道《Brazil betting sector nearly triples digital ad spend in 2024》· <a href="https://gamingamerica.com/news/13017/brazil-betting-sector-nearly-triples-digital-ad-spend-in-2024">原报道</a></li>
+      <li>199IT 转 Sensor Tower《无尽的拉格朗日》2022 年 6 月 iOS 榜 · <a href="https://www.199it.com/archives/1462539.html">原页面</a></li>
+      <li>智通财经 · 网易游戏 2022 年 6 月流水 · <a href="https://m.zhitongcaijing.com/contentnew/appcontentdetail.html?content_id=752667">原页面</a></li>
+    </ul>
+    <p class="small">以上均为公开来源。专业数据机构方法论不同，同一指标跨机构差异可达 30% 以上，所以正文都标了机构名；没有来源的数字不写。</p>
+
+  </article>
+
+  <div class="footer">
+    <span>林宇浩 · 2027 届统招本科 · 游戏发行 / 运营</span>
+    <span><a href="../index.html">回作品集</a></span>
+  </div>
+
+</div>
+</body>
+</html>

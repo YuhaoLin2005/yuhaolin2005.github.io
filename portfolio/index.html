@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>林宇浩 · 游戏发行 / 运营 · 作品集</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <span class="brand">林宇浩 · 作品集</span>
+    <span>
+      <a href="#work">项目</a>
+      <a href="#analysis">拆解</a>
+      <a href="#contact">联系</a>
+    </span>
+  </div>
+
+  <header class="hero">
+    <div class="kicker">2027 届 · 统招本科 · 游戏发行 / 运营</div>
+    <h1>林宇浩</h1>
+    <div class="role">游戏发行 / 运营 · 上海 / 深圳</div>
+    <p class="lead">我不是科班做游戏的。我是玩出来的，后来自己动手做了一个。</p>
+    <div class="meta">
+      <strong>巴西国籍</strong>，持中华人民共和国外国人永久居留身份证（免办外国人工作许可），可正常签订劳动合同。<br>
+      福建农林大学 · 空间信息与数字技术（计算机类）· 2027.06 毕业，可提前到岗。<br>
+      邮箱 lin_yuhao2005@163.com　·　GitHub <a href="https://github.com/YuhaoLin2005">YuhaoLin2005</a>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2><span class="num">01</span>先看三个东西</h2>
+    <div class="cards">
+      <a class="card" href="https://yuhaolin2005.itch.io/qingxuan-volume1">
+        <img src="assets/qingxuan-itch.png" alt="青玄纪行页面">
+        <div class="body">
+          <div class="tag">可以直接玩</div>
+          <div class="name">青玄纪行 · 丹房旧案</div>
+          <div class="desc">12 章、40 个选项、8 个结局。我负责故事、配置表、验收和上线。</div>
+        </div>
+      </a>
+      <a class="card" href="#yoge">
+        <img src="assets/yoge-home.png" alt="游格首页">
+        <div class="body">
+          <div class="tag">48 小时团队作品</div>
+          <div class="name">游格 YOGE</div>
+          <div class="desc">福州城市文旅产品。我负责需求、MVP、分工和验收，23/23 条端到端用例通过。</div>
+        </div>
+      </a>
+      <a class="card" href="#analysis">
+        <img src="assets/analysis-slg.png" alt="无尽的拉格朗日拆解报告">
+        <div class="body">
+          <div class="tag">三份公开拆解</div>
+          <div class="name">SLG / IP 改编 / 游戏平台</div>
+          <div class="desc">每个数字标来源；查不到的就写“数据不可得”，不拿大盘当自己的基线。</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="note">
+      这个页面放的是我能当面讲清楚的东西。没做过的、没数据的，我写在<a href="#honest">最后一节</a>，不藏在话术里。
+    </div>
+  </section>
+
+  <section id="qingxuan">
+    <h2><span class="num">02</span>青玄：我具体改了什么</h2>
+    <p>《青玄纪行》是一个 MIT 开源放置修仙项目。原项目提供玩法框架、美术和数值骨架；我在上面补第一卷，负责故事、配表、AI 解说边界、验收和部署。</p>
+
+    <div class="facts">
+      <div class="fact"><div class="n">12 章</div><div class="l">12 个决策点 / 40 个选项 / 8 个结局 / 约 1.6 万字</div></div>
+      <div class="fact"><div class="n">4 类</div><div class="l">道具、任务、奖励、文案配置表；关键 flag 都有读取点</div></div>
+      <div class="fact"><div class="n">7 / 21 / 0</div><div class="l">7 项线上验收、21 个探针、0 console error</div></div>
+    </div>
+
+    <h3>一个选择怎么落到正文里</h3>
+    <p>第一章夜里闻到药味，玩家可以选“守规矩”或“循药味去看”。选后者，会记下后墙的细节；第四章火从后墙烧起来时，这段细节会被读到；第八章再兑现“位置”这个后果。选项不是点完就结束，它要在后面的章节里有回响。</p>
+
+    <h3>一个真实 bug：存档读到负数</h3>
+    <p>症状是读档后修为变成负数。查下来是写入端没有下限、载入端又直接信任存档。改法是两头都补：写入端把修为下限锁在 0；载入端遇到负值先做修复性载入，再重验。坏档仍然会被拦下，不会把错误洗成正常。</p>
+
+    <h3>开局从五步缩到三步</h3>
+    <p>原来的“天道抽签”三支签结果一样，玩家点了等于没点；“分堂三选一”没有实际效果。两个都删掉，开局从五步变三步。功能不是越多越好，先保住主线。</p>
+
+    <p class="small">公开可玩：<a href="https://yuhaolin2005.itch.io/qingxuan-volume1">yuhaolin2005.itch.io/qingxuan-volume1</a>　·　原项目是 MIT 开源框架，不是我写的。</p>
+  </section>
+
+  <section id="yoge">
+    <h2><span class="num">03</span>游格：48 小时里我砍了什么</h2>
+    <p>福州城市文旅产品。用户回答 6 道场景题 + 3 段自由写，系统从 19 个真实福州地标里给出 3 条路线；线下有 6 个烟台山点位剧情、3 个结局。</p>
+
+    <div class="facts">
+      <div class="fact"><div class="n">19 个</div><div class="l">真实福州地标，3 条路线</div></div>
+      <div class="fact"><div class="n">23/23</div><div class="l">端到端用例通过；13/13 接口、10/10 浏览器检查</div></div>
+      <div class="fact"><div class="n">48 小时</div><div class="l">团队作品；UI 和程序是队友</div></div>
+    </div>
+
+    <p>我负责需求挖掘、验证、MVP 取舍、分工和验收。48 小时里只做“答题 → 路线 → 点位”这条主线；组队、时间胶囊、分享放到第二层。NFC / QR 用 <code>?spot=N</code> 深链做点位入口，线下动线和线上推荐一一对应。</p>
+
+    <p>验收清单在开工前就写，不然最后只能靠感觉。上线前逐条走查：13/13 接口、10/10 浏览器检查、9 项部署自检、23/23 端到端用例。</p>
+
+    <p class="small">游格没有排名，也没有获奖；政府采购只是商业模式设计，没有签约、没有落地。UI 和程序不是我做的。线上版本面试时可演示；代码和素材归团队，不公开仓库。</p>
+  </section>
+
+  <section id="analysis">
+    <h2><span class="num">04</span>拆解：不是把新闻拼在一起</h2>
+    <p>三份拆解都按同一个顺序：先写判断，再拿公开数据核对；数据推翻判断就改，查不到来源就写“数据不可得”。每份都有“如果我在运营岗上会怎么做”和“用什么指标验收”。</p>
+
+    <div class="analysis-list">
+      <a class="analysis-item" href="analysis/slg.html">
+        <span>
+          <span class="t">无尽的拉格朗日：海外 SLG 的一笔账</span>
+          <span class="d">巴西市场、买量口径、联盟社交留存；哪些数字能用，哪些不能</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="analysis-item" href="analysis/ip.html">
+        <span>
+          <span class="t">航海王：壮志雄心：大 IP 为什么没接住长线</span>
+          <span class="d">首周爆发、月度下滑、PVP 平衡、IP 红利递减</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="analysis-item" href="analysis/platform.html">
+        <span>
+          <span class="t">17173：一个游戏门户的收缩，不全是运营的错</span>
+          <span class="d">页游塌了、端游还在长；情怀是留存工具，不是增长引擎</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <p class="small">拆解是 2026 年 8 月做的，数据截止同月。付费数据库拿不到的部分，我标了“数据不可得”，没有编。</p>
+  </section>
+
+  <section id="how">
+    <h2><span class="num">05</span>我平时怎么看游戏</h2>
+    <p>TapTap 3000+ 天，玩过 126 款手游，跨 4 个品类，偏经营、放置、策略。看得多了，现在打开一个新游戏，会先问三个问题：</p>
+    <ul>
+      <li><strong>它让玩家每天回来做什么？</strong>是日常、是联盟、是抽卡，还是只是签到。</li>
+      <li><strong>它的钱从哪来？</strong>谁在付、付完得到了什么、不付会不会被卡住。</li>
+      <li><strong>它的版本在解决什么问题？</strong>新角色、新活动、新系统，是在补留存，还是在拉收入。</li>
+    </ul>
+    <p>这三个问题，最后都会落到一张表上：观察、动作、指标。没有指标的动作，我不太信。</p>
+  </section>
+
+  <section id="honest">
+    <h2><span class="num">06</span>我没做什么</h2>
+    <ul>
+      <li>青玄的原玩法框架、美术和数值骨架不是我做的；我做的是故事、配表、验收和部署。</li>
+      <li>游格的 UI 和程序是队友做的；我没有做实体物料和真人 NPC。</li>
+      <li>我的经验在国内发行 / 运营侧；海外社区、本地化、异业合作还没有实操。巴西国籍不等于海外业务经验。</li>
+      <li>我没有做过上线休闲游戏的完整策划；现在是从拆解和玩家侧往那边靠。</li>
+      <li>三份拆解用的是公开数据；付费数据库（data.ai、AppMagic、Statista 订阅段）拿不到的部分，我没有假装拿到。</li>
+    </ul>
+    <p>这些不影响我把能做的事讲清楚，但面试时被问到，我会直接说“没做过”。</p>
+  </section>
+
+  <section id="contact">
+    <h2><span class="num">07</span>联系</h2>
+    <p>邮箱：<a href="mailto:lin_yuhao2005@163.com">lin_yuhao2005@163.com</a><br>
+    GitHub：<a href="https://github.com/YuhaoLin2005">github.com/YuhaoLin2005</a></p>
+    <p class="small">三页 PDF 作品集会随简历附上；青玄可以直接玩：<a href="https://yuhaolin2005.itch.io/qingxuan-volume1">itch.io</a></p>
+  </section>
+
+  <div class="footer">
+    <span>林宇浩 · 2027 届统招本科 · 游戏发行 / 运营</span>
+    <span>最后更新：2026-10-25</span>
+  </div>
+
+</div>
+</body>
+</html>
