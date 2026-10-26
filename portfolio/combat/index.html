@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>林宇浩 · 游戏策划 / 战斗方向 · 作品集</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  .shot {
+    margin: 22px 0 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .shot figure { margin: 0; }
+  .shot img {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--line);
+    background: #faf8f4;
+  }
+  .shot .phone { max-width: 330px; margin: 0 auto; }
+  .shot figcaption { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-top: 8px; }
+  table.matrix { font-size: 14px; }
+  table.matrix td, table.matrix th { text-align: center; font-variant-numeric: tabular-nums; }
+  table.matrix td:first-child, table.matrix th:first-child { text-align: left; }
+  table.matrix tr.best td { background: #fbf7ef; font-weight: 700; }
+  table.matrix td.dim { color: #8b857c; }
+  .callout {
+    border-left: 3px solid var(--accent-soft);
+    background: var(--wash);
+    padding: 16px 18px;
+    margin: 18px 0 24px;
+    font-size: 15px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  @media (max-width: 720px) {
+    .shot { grid-template-columns: 1fr; }
+    .shot .phone { max-width: 300px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <span class="brand">林宇浩 · 作品集</span>
+    <span>
+      <a href="#combat">战斗</a>
+      <a href="#yoge">游格</a>
+      <a href="#analysis">拆解</a>
+      <a href="#contact">联系</a>
+    </span>
+  </div>
+
+  <header class="hero">
+    <div class="kicker">2027 届 · 统招本科 · 游戏策划 / 战斗方向</div>
+    <h1>林宇浩</h1>
+    <div class="role">战斗策划 · 厦门 / 福州</div>
+    <p class="lead">我不是科班做游戏的。我是玩出来的，后来自己动手做了一个。</p>
+    <div class="meta">
+      <strong>巴西国籍</strong>，持中华人民共和国外国人永久居留身份证（免办外国人工作许可），可正常签订劳动合同。<br>
+      福建农林大学 · 空间信息与数字技术（计算机类）· 2027.06 毕业，月内到岗，可稳定实习 3 个月。<br>
+      邮箱 lin_yuhao2005@163.com　·　GitHub <a href="https://github.com/YuhaoLin2005">YuhaoLin2005</a>　·　作品集：本页
+    </div>
+  </header>
+
+  <section id="combat">
+    <h2><span class="num">01</span>青玄的战斗：从「战力够不够」到三选一</h2>
+
+    <p><a href="https://yuhaolin2005.itch.io/qingxuan-volume1">《青玄纪行 · 丹房旧案》</a>是在 MIT 开源的 vue-idle-xiuxian 上二次开发的放置修仙游戏。上游留的是放置修炼的底子：修炼循环、基础灵草 / 丹药表、几个 worker。当前版本的 12 章故事、演武场与战技、市场 / 身份 / 关系、界面主题、全部场景与人物图（AI 生成，我定风格、筛选、接入）、战力与强化数值，是重做或新增的。上游的 combat.js / dungeon.js 没接入当前版本。</p>
+
+    <p class="small">对照上游：src 33 → 66 个文件（37 新增、19 改写、10 原样保留）；public 从 2 个文件到 42 个（新增 40 个，其中场景 / 人物 / 道具图 37 张）。</p>
+
+    <div class="facts">
+      <div class="fact"><div class="n">3 档</div><div class="l">试剑 / 月试 / 内门，按剧情节点开，不是难度阶梯</div></div>
+      <div class="fact"><div class="n">3 选 1</div><div class="l">破风 / 流云 / 玄龟，只上阵一个战技</div></div>
+      <div class="fact"><div class="n">1000 次</div><div class="l">每格固定种子跑满 1000 场，不是估的</div></div>
+    </div>
+
+    <h3>第一版只判一个数</h3>
+    <p>最初的演武场只有一个战力门槛：够就赢，不够就输。玩家在开打前没有任何能做的事，赢了是配置够，输了是修为不够。这不是战斗，是一道减法题。</p>
+
+    <h3>三档对手，各怕一样东西</h3>
+    <p>我把它改成三档对手：身法型吃抗闪，守御型吃破甲，强攻型吃卸力。玩家只能上阵一个战技，所以每一档都要先问一句「对面是什么路数」，再决定带谁。三档按剧情节点开，不是一路加难度——内门的对手战力反而比月试低，但爆发最重。</p>
+
+    <table class="matrix">
+      <thead>
+        <tr><th>战技</th><th>试剑 · 疾风 870</th><th>月试 · 铁壁 950</th><th>内门 · 狂攻 900</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>不带战技</td><td class="dim">25.8%</td><td class="dim">15.9%</td><td class="dim">0.1%</td></tr>
+        <tr><td>破风剑诀</td><td>58.4%</td><td class="best">92.5%</td><td class="dim">0.5%</td></tr>
+        <tr><td>流云步</td><td class="best">73.8%</td><td>83.2%</td><td class="dim">11.4%</td></tr>
+        <tr><td>玄龟护体</td><td>63.0%</td><td class="dim">35.2%</td><td class="best">41.9%</td></tr>
+      </tbody>
+    </table>
+    <p class="small">10 级裸装、战力 780；每格 1000 个固定种子（seed 20261026），数字是本地跑出来的。界面里的胜率是 120 个种子的快速预估，和这组差 1–3 个百分点。</p>
+
+    <div class="callout">
+      <p>同一套 780 战力，带对了胜率翻几倍；带错了少则掉一成，内门带破风只剩 0.5%。三档各有一个最优解，换错了就掉回去。</p>
+      <p>内门不是换一个战技就能过的：最好的玄龟也只有 42%，把 0.1% 抬到 42% 之后，剩下的靠战力。这一档是力量墙。</p>
+    </div>
+
+    <h3>战技不改战力数字</h3>
+    <p>三套战技只改暴击、闪避、破甲、卸力这些二级修正，不写回战力。原因是 12 章的门槛、界面上的战力、玩家的强化投入全都挂在同一个数上；战技一旦能改它，门槛和数字都会跟着漂，改一个技能要重配一整章。现在战技只决定「同一套战力能不能打过」，不决定「你该练到多少级」。</p>
+
+    <div class="shot">
+      <figure>
+        <img class="phone" src="../assets/qingxuan-combat.png" alt="青玄纪行演武场，手机端三选一战技">
+        <figcaption>390px 手机端：三选一战技 + 每档胜率预估。上阵战技的加成和代价都写在卡片上，比如破风 +15% 暴击、+25% 暴伤、+25% 破甲，但要吃 -6% 闪避。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/qingxuan-itch.png" alt="青玄纪行 itch.io 公开测试页">
+        <figcaption>海外公开测试页。国内网络可能打不开；国内演示地址可联系后另发。</figcaption>
+      </figure>
+    </div>
+
+    <h3>主动技能没做</h3>
+    <p>这一版是自动推演，加一个「点技能」按钮也只是假的：玩家点与不点，结果早就在开打前定了。所以选择放在开打之前，而不是假装给一个操作。下一步真要做实时战斗，先得决定玩家的手忙到什么程度——轻度 MMO 的底线是挂机不难受，手动要有明确收益。</p>
+
+    <h3>怎么验收</h3>
+    <p>上线前 7 项验收、21 个探针，8 个结局各走一遍。修过成就页白屏、手机上两个 Tab 点不到、存档负数整档拒收。演武场另有一套断言：每档只能有一个最优解，最佳与次佳至少差 5 个百分点，不带战技必须明显低于对应最佳——证明确实是战技在起作用，不是同一套数值换个名字。</p>
+  </section>
+
+  <section id="yoge">
+    <h2><span class="num">02</span>游格：48 小时里我砍了什么</h2>
+    <p>福州城市文旅产品。用户回答 6 道场景题 + 3 段自由写，系统从 19 个真实福州地标里给出 3 条路线；线下 6 个烟台山点位剧情、3 个结局。我负责需求、MVP 取舍、分工和验收。</p>
+    <div class="facts">
+      <div class="fact"><div class="n">19 个</div><div class="l">真实福州地标，3 条路线</div></div>
+      <div class="fact"><div class="n">23/23</div><div class="l">端到端用例通过；13/13 接口、10/10 浏览器检查</div></div>
+      <div class="fact"><div class="n">48 小时</div><div class="l">团队作品；UI 和程序是队友</div></div>
+    </div>
+    <p>48 小时里只做「答题 → 路线 → 点位」这条主线；组队、时间胶囊、分享放到第二层。验收清单在开工前就写，不然最后只能靠感觉。比赛没有排名，也没有获奖；政府采购只是商业模式设计，没有签约。</p>
+  </section>
+
+  <section id="analysis">
+    <h2><span class="num">03</span>三份拆解：先给判断，再给数据</h2>
+    <div class="analysis-list">
+      <a class="analysis-item" href="../analysis/slg.html">
+        <span>
+          <span class="t">无尽的拉格朗日：海外 SLG 的一笔账</span>
+          <span class="d">巴西市场、买量口径、联盟社交留存；哪些数字能用，哪些不能</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="analysis-item" href="../analysis/ip.html">
+        <span>
+          <span class="t">航海王：壮志雄心：大 IP 为什么没接住长线</span>
+          <span class="d">首周爆发、月度下滑、PVP 平衡、IP 红利递减</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="analysis-item" href="../analysis/platform.html">
+        <span>
+          <span class="t">17173：一个游戏门户的收缩，不全是运营的错</span>
+          <span class="d">页游塌了、端游还在长；情怀是留存工具，不是增长引擎</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+    <p class="small">每份都先给判断，再拿公开数据核对；数据推翻判断就改，查不到来源就写「数据不可得」，不拿大盘当自己的基线。</p>
+  </section>
+
+  <section id="how">
+    <h2><span class="num">04</span>我怎么判断一个技能好不好玩</h2>
+    <p>主要看两件事：它在什么局面下会被选，选错要付什么代价。这两件事能写进配置、能在版本里跑出来，我才觉得它是真的；否则只是一个看起来有用的按钮。</p>
+    <p>所以演武场不是「加一个技能」就完事：战技必须改变某一档的胜率结构，否则就是换皮。写数值时也一样——先问这个数卡住的是谁、卡多久，再决定填多少。</p>
+    <p class="small">玩过 126 款手游，跨 4 个品类，偏放置、SLG、策略；TapTap 3000+ 天。《无尽的拉格朗日》服务器头部联合体成员（玩家侧），几个赛季跟下来，看过联盟怎么拉人、怎么散。</p>
+  </section>
+
+  <section id="contact">
+    <h2><span class="num">05</span>联系与证据链接</h2>
+    <p>邮箱：<a href="mailto:lin_yuhao2005@163.com">lin_yuhao2005@163.com</a></p>
+    <p>青玄公开试玩（itch，海外）：<a href="https://yuhaolin2005.itch.io/qingxuan-volume1">yuhaolin2005.itch.io/qingxuan-volume1</a><br>
+    <span class="small">国内网络可能打不开；国内演示地址可联系后另发。</span></p>
+    <p>GitHub：<a href="https://github.com/YuhaoLin2005">github.com/YuhaoLin2005</a><br>
+    <span class="small">国内网络可能打不开；项目摘要见本页和 PDF。</span></p>
+    <p>EvalScope PR #1576：<a href="https://github.com/modelscope/evalscope/pull/1576">github.com/modelscope/evalscope/pull/1576</a><br>
+    <span class="small">已合入主仓。</span></p>
+    <p class="small">作品集 PDF 随简历附上。</p>
+  </section>
+
+  <div class="footer">
+    <span>林宇浩 · 2027 届统招本科 · 游戏策划 / 战斗方向</span>
+    <span>最后更新：2026-10-26</span>
+  </div>
+
+</div>
+</body>
+</html>
