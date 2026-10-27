@@ -50,11 +50,11 @@
         </div>
       </a>
       <a class="card" href="#analysis">
-        <img src="assets/analysis-slg.png" alt="无尽的拉格朗日拆解报告">
+        <img src="assets/analysis-slg.png" alt="《星际猎人》巴西市场拆解报告">
         <div class="body">
           <div class="tag">三份公开拆解</div>
           <div class="name">SLG / IP 改编 / 游戏平台</div>
-          <div class="desc">每个数字标来源；查不到的就写“数据不可得”，不拿大盘当自己的基线。</div>
+          <div class="desc">每个数字标来源；口径不同的数据分开写，不拿大盘当自己的基线。</div>
         </div>
       </a>
     </div>
@@ -69,7 +69,7 @@
     <p>《青玄纪行》是在 MIT 开源的 vue-idle-xiuxian 上二次开发。上游只留下放置修炼的基础骨架（修炼循环、基础灵草 / 丹药表、几个 worker）；12 章故事、演武场与战技、市场 / 身份 / 关系、界面与场景人物图、战力与强化数值是我做的。</p>
 
     <div class="facts">
-      <div class="fact"><div class="n">12 章</div><div class="l">12 个决策点 / 40 个选项 / 8 个结局 / 约 1.6 万字</div></div>
+      <div class="fact"><div class="n">12 章</div><div class="l">每章 2–5 个选项 / 合计 40 / 8 个结局 / 约 1.6 万字</div></div>
       <div class="fact"><div class="n">4 类</div><div class="l">道具、任务、奖励、文案配置表；关键 flag 都有读取点</div></div>
       <div class="fact"><div class="n">7 / 21 / 0</div><div class="l">7 项线上验收、21 个探针、0 console error</div></div>
     </div>
@@ -96,7 +96,7 @@
       <div class="fact"><div class="n">48 小时</div><div class="l">团队作品；UI 和程序是队友</div></div>
     </div>
 
-    <p>我负责需求挖掘、验证、MVP 取舍、分工和验收。48 小时里只做“答题 → 路线 → 点位”这条主线；组队、时间胶囊、分享放到第二层。NFC / QR 用 <code>?spot=N</code> 深链做点位入口，线下动线和线上推荐一一对应。</p>
+    <p>我负责需求挖掘、验证、MVP 取舍、分工和验收。48 小时里只做“答题 → 路线 → 点位”这条主线；组队、时间胶囊、分享放到第二层。线下原本设想用 NFC / QR 深链做点位入口，需要文旅资源配合，当前版本没有落地。</p>
 
     <p>验收清单在开工前就写，不然最后只能靠感觉。上线前逐条走查：13/13 接口、10/10 浏览器检查、9 项部署自检、23/23 端到端用例。</p>
 
@@ -105,13 +105,13 @@
 
   <section id="analysis">
     <h2><span class="num">04</span>拆解：不是把新闻拼在一起</h2>
-    <p>三份拆解都按同一个顺序：先写判断，再拿公开数据核对；数据推翻判断就改，查不到来源就写“数据不可得”。每份都有“如果我在运营岗上会怎么做”和“用什么指标验收”。</p>
+    <p>三份拆解都按同一个顺序：先写判断，再拿公开数据核对；数据推翻判断就改，口径不同的分开写。每份都有“如果我在运营岗上会怎么做”和“用什么指标验收”。</p>
 
     <div class="analysis-list">
       <a class="analysis-item" href="analysis/slg.html">
         <span>
-          <span class="t">无尽的拉格朗日：海外 SLG 的一笔账</span>
-          <span class="d">巴西市场、买量数据、联盟社交留存；哪些数字能用，哪些不能</span>
+          <span class="t">《星际猎人》（原《无尽的拉格朗日》）：巴西市场的一笔账</span>
+          <span class="d">市场、玩家结构、支付与买量；哪些数字能用，怎么落到运营动作</span>
         </span>
         <span class="arrow">→</span>
       </a>
@@ -131,12 +131,12 @@
       </a>
     </div>
 
-    <p class="small">拆解是 2026 年 8 月做的，数据截止同月。付费数据库拿不到的部分，我标了“数据不可得”，没有编。</p>
+    <p class="small">拆解是 2026 年 8 月做的，2026-10 按同一口径更新了巴西数据部分。</p>
   </section>
 
   <section id="how">
     <h2><span class="num">05</span>我平时怎么看游戏</h2>
-    <p>TapTap 3000+ 天，玩过 126 款手游，跨 4 个品类，偏经营、放置、策略。看得多了，现在打开一个新游戏，会先问三个问题：</p>
+    <p>TapTap 两个账号 3162 / 2257 天（账号注册天数），玩过 126 款手游，跨 4 个品类，偏经营、放置、策略。看得多了，现在打开一个新游戏，会先问三个问题：</p>
     <ul>
       <li><strong>它让玩家每天回来做什么？</strong>是日常、是联盟、是抽卡，还是只是签到。</li>
       <li><strong>它的钱从哪来？</strong>谁在付、付完得到了什么、不付会不会被卡住。</li>
